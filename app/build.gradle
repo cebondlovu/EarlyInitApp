@@ -1,0 +1,47 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace "com.example.earlyinit"
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.earlyinit"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        externalNativeBuild { cmake { cppFlags "-std=c++17 -fexceptions -frtti" } }
+        ndk { abiFilters "armeabi-v7a","arm64-v8a","x86","x86_64" }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlin { jvmToolchain(17) }
+
+    composeOptions { kotlinCompilerExtensionVersion "1.5.15" }
+    buildFeatures { compose true }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    externalNativeBuild { cmake { path "src/main/cpp/CMakeLists.txt" } }
+    packagingOptions { excludes += ["META-INF/LICENSE*", "META-INF/NOTICE*"] }
+}
+
+dependencies {
+    implementation(platform("androidx.compose:compose-bom:2025.06.00"))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.activity:activity-compose:1.10.1")
+    implementation("androidx.core:core-ktx:1.13.1")
+}
