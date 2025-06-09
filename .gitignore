@@ -1,3 +1,7 @@
-# Project exclude paths
+#project-level ignores
 /.gradle/
-/app/
+/local.properties     # SDK paths, machine-specific
+
+#module build output
+/app/build/           # Gradle’s compiled APKs, intermediates
+/app/.cxx/            # NDK/CMake obj + lib
