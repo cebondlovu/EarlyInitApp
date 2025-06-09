@@ -1,9 +1,9 @@
-#project-level ignores
-/.gradle/
-/local.properties     # SDK paths, machine-specific
-/.idea/                    # Android-Studio metadata
-*.iml                      # Module files
+# IDE & gradle cache
+.idea/
+*.iml
+.gradle/
+local.properties
 
-#module build output
-/app/build/           # Gradle’s compiled APKs, intermediates
-/app/.cxx/            # NDK/CMake obj + lib
+# module build output
+app/build/
+app/.cxx/
