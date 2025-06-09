@@ -26,7 +26,7 @@ No reflection, no hidden APIs, no races.
 ## Build & run
 
 ```bash
-git clone https://github.com/<your-org>/EarlyInitApp.git
+git clone https://github.com/cebondlovu/EarlyInitApp.git
 cd EarlyInitApp
 
 # one-time wrapper download → Gradle 8.9
